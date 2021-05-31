@@ -1,0 +1,16 @@
+name: Comentário para PR
+on: pull_request
+
+jobs: 
+  comment-PR:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Comentar PR
+        uses: trollander/actions-comments-pull-request@master
+        with:
+          messagem: "Obrigado pelo PR. Revisaremos em breve"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+       
+       
+       
