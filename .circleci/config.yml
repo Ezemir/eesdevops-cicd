@@ -6,10 +6,16 @@ jobs:
       - image: circleci/python:3.6.4
     steps:
       - checkout
-      - run:
-          command: | 
-            sudo pip install pipenv --upgrade pip
-            pip install pytest
-            if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - python/install-packages:
+          pkg-manager: pip
+      - python/install-packages:
+          pip-dependency-file: dev-requirements.txt
+          pkg-manager: pip
+      - python/install-packages:
+          args: pytest
+          pkg-manager: pip
+          pypi-cache: false
+       - run:
+          command: |    if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
             
        
