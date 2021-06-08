@@ -1,0 +1,16 @@
+jobs:
+  run-test:
+    machine: true
+    steps:
+      - ghpr/build-prospective-branch
+      - some-test-command
+      - ghpr/post-pr-comment:
+          comment: some message
+          when: on_fail
+      - ghpr/slack-pr-author:
+          color: '#1CBF43'
+          get_slack_user_by: meseeks
+          message: ':tada: Tests passed!'
+orbs:
+  ghpr: narrativescience/ghpr@x.y.z
+version: 2.1
