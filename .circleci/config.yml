@@ -11,7 +11,7 @@ jobs:
   build-and-test: 
     docker:
       - image: cimg/python:3.8
-      - image: circleci/mongo:4.0
+      - image: circleci/mongo:4.4.6
     steps:
       - checkout
       - python/install-packages:
