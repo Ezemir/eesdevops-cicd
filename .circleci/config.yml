@@ -16,6 +16,7 @@ jobs:
           pkg-manager: pip
           pypi-cache: false
        - run:
-          command: |    if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          command: |    
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
             
        
