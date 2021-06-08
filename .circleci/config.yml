@@ -20,7 +20,6 @@ jobs:
           name: Run tests
           command: pytest
           
-jobs:
   run-test:
     machine: true
     steps:
