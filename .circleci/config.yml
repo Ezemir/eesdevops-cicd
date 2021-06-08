@@ -7,7 +7,9 @@ jobs:
     steps:
       - checkout
       - run:
-          command: |  # use pipenv to install dependencies
-            sudo pip install pipenv
+          command: | 
+            sudo pip install pipenv pytest
             pipenv install
+            if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+            
        
