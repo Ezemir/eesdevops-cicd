@@ -4,7 +4,7 @@ orbs:
   python: circleci/python@1.2
 
 workflows:
-  sample: 
+  cicd-test: 
     jobs:
       - build-and-test
 jobs:
@@ -19,19 +19,7 @@ jobs:
       - run:
           name: Run tests
           command: pytest
-          
-  run-test:
-    machine: true
-    steps:
-      - ghpr/build-prospective-branch
-      - some-test-command
-      - ghpr/post-pr-comment:
-          comment: PR Message
-          when: on_fail
-      - ghpr/slack-pr-author:
-          color: '#1CBF43'
-          get_slack_user_by: meseeks
-          message: ':tada: Tests passed!'
+
     
 
 
