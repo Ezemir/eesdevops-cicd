@@ -4,7 +4,7 @@ jobs:
   build:
     docker:
       - image: circleci/python:3.6.4
-    steps:
+   steps:
       - checkout
       - python/install-packages:
           pkg-manager: pip
@@ -15,8 +15,7 @@ jobs:
           args: pytest
           pkg-manager: pip
           pypi-cache: false
-       - run:
-          command: |    
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-            
-       
+      - run:
+          command: |
+            pytest --version
+          name: Test
