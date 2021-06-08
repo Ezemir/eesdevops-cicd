@@ -8,8 +8,8 @@ jobs:
       - checkout
       - run:
           command: | 
-            sudo pip install pipenv pytest
-            pipenv install
+            sudo pip install pipenv--upgrade pip
+            pip install pytest
             if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
             
        
